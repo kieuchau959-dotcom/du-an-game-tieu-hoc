@@ -1,15 +1,10 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://placeholder.supabase.co';
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'placeholder-key';
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://ayqxgekaorymguxklojw.supabase.co';
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF5cXhnZWthb3J5bWd1eGtsb2p3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYwMDAwOTgsImV4cCI6MjEwMTU3NjA5OH0.a5CiCHUfEVkotnN-OCH8E6oKmif0PN8xdXSHfoyphao';
 
 export const isSupabaseConfigured = () => {
-  return (
-    supabaseUrl &&
-    supabaseUrl !== 'https://placeholder.supabase.co' &&
-    supabaseAnonKey &&
-    supabaseAnonKey !== 'placeholder-key'
-  );
+  return Boolean(supabaseUrl && supabaseAnonKey && !supabaseUrl.includes('placeholder'));
 };
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
